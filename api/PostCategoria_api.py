@@ -1,4 +1,5 @@
 from flask_restful import Resource
+from flask import jsonify
 from app import mysql
 
 class PostCategoria_api(Resource):
@@ -10,4 +11,4 @@ class PostCategoria_api(Resource):
                         on p.idcategoría =c.idcategoría
                         where p.idcategoría ='''+id)
         result = cur.fetchall()
-        return str(result)
+        return jsonify(result) # jsonify combierte a formato jason
